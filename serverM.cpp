@@ -197,12 +197,11 @@ int main(){
         cout<<receive_query<<endl;
         string send_query=string(receive_query);
         if(send_query.substr(0,2)=="EE"){
-
-            memset(&serverCS_udp,0,sizeof(serverCS_udp));
-            serverCS_udp.sin_family = AF_INET;
-	        serverCS_udp.sin_port = htons(ServerCS_UDP_Port);
-	        serverCS_udp.sin_addr.s_addr =inet_addr("127.0.0.1");
-
+	
+	    memset(&serverEE_udp,0,sizeof(serverEE_udp));
+            serverEE_udp.sin_family = AF_INET;
+	    serverEE_udp.sin_port = htons(ServerEE_UDP_Port);
+	    serverEE_udp.sin_addr.s_addr =inet_addr("127.0.0.1");
             socklen_t serverEE_udp_address;
             //Send query to the EE Server on UDP if it asks info about a EE Course.
             sendto(serverM_UDP_socket, receive_query, sizeof(receive_query),0,(const struct sockaddr*)&serverEE_udp, sizeof(serverEE_udp));
@@ -225,11 +224,11 @@ int main(){
             }
 
             else if(send_query.substr(0,2)=="CS"){
-
-            memset(&serverEE_udp,0,sizeof(serverEE_udp));
-            serverEE_udp.sin_family = AF_INET;
-	        serverEE_udp.sin_port = htons(ServerEE_UDP_Port);
-	        serverEE_udp.sin_addr.s_addr =inet_addr("127.0.0.1");
+		    
+	    memset(&serverCS_udp,0,sizeof(serverCS_udp));
+            serverCS_udp.sin_family = AF_INET;
+	    serverCS_udp.sin_port = htons(ServerCS_UDP_Port);
+	    serverCS_udp.sin_addr.s_addr =inet_addr("127.0.0.1");
 
             socklen_t serverCS_udp_address;
             //Server to CS Server on UDP
