@@ -216,15 +216,13 @@ https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/
 https://beej.us/guide/bgnet/
 https://beej.us/guide/bgc/
 
-## Get the project running
+Get the project running
 
 #Using Make File commands
 
-makeall 
--compiles all files using this single command
+Compile the project using - makeall 
 
-make clean
--cleans all generated output files.
+make clean - cleans all generated output files.
 
 # Run the project
 
